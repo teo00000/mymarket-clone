@@ -1,16 +1,18 @@
-<form (ngSubmit)="addItem()">
-  <input type="text" [(ngModel)]="itemName" name="itemName">
-  <button type="submit">Add</button>
-</form>
+<div class="main-container">
+  <h1 class="items-header">Items</h1>
 
-<h1>Items</h1>
+  <form (ngSubmit)="addItem()" class="form">
+    <input type="text" [(ngModel)]="itemName" name="itemName">
+    <button type="submit" class="add-btn">Add</button>
+  </form>
 
-<div class="wrapper">
-  @for (item of items; track item.id) {
-  <div class="itemContainer">
-    <li class="item-title">{{ item.title }}</li>
+  <div class="wrapper">
+    @for (item of items; track item.id) {
+    <div class="item-container">
+      <li class="item-title">{{ item.title }}</li>
+    </div>
+    }
   </div>
-  }
-</div>
 
-<pre>{{ items | json }}</pre>
+  <pre>{{ items | json }}</pre>
+</div>
