@@ -3,6 +3,14 @@
   <button type="submit">Add</button>
 </form>
 
-<h1>Item</h1>
+<h1>Items</h1>
+
+<div class="wrapper">
+  @for (item of items; track item.id) {
+  <div class="itemContainer">
+    <li class="item-title">{{ item.title }}</li>
+  </div>
+  }
+</div>
 
 <pre>{{ items | json }}</pre>
