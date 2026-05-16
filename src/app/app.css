@@ -15,12 +15,13 @@
 
 .form {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     gap: 20px;
     margin: 50px;
 }
 
-input[name='itemName'] {
+input {
     padding: 12px 14px;
     width: 100%;
     border: 1px solid #d0d5dd;
@@ -31,18 +32,19 @@ input[name='itemName'] {
     background: #fff;
 }
 
-input[name='itemName']:focus {
+input:focus {
     border-color: #6366f1;
     box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
 }
 
-input[name='itemName']::placeholder {
+input::placeholder {
     color: #98a2b3;
 }
 
 .add-btn {
-    width: 70px;
-    border-radius: 5px;
+    padding: 8px 25px;
+    width: 150px;
+    border-radius: 10px;
     border: none;
     cursor: pointer;
 }

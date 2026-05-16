@@ -3,6 +3,8 @@
 
   <form (ngSubmit)="addItem()" class="form">
     <input type="text" [(ngModel)]="itemName" name="itemName" placeholder="Add item">
+    <input type="number" [(ngModel)]="itemPrice" name="itemPrice" placeholder="Enter price">
+    <input type="text" [(ngModel)]="itemDescription" name="itemDescription" placeholder="Enter description">
     <button type="submit" class="add-btn">Add</button>
   </form>
 
@@ -10,6 +12,10 @@
     @for (item of items; track item.id) {
     <div class="item-container">
       <li class="item-title">{{ item.title }}</li>
+
+      <p>Price: {{ item.price }}$</p>
+      <p>{{ item.description }}</p>
+
       <button (click)="deleteItem(item.id)">
         Delete
       </button>

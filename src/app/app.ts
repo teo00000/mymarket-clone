@@ -7,6 +7,8 @@ interface Item {
   id: number;
   title: string;
   sold: boolean;
+  description: string;
+  price: number;
 }
 
 @Component({
@@ -21,17 +23,23 @@ export class App {
   protected readonly title = signal('mymarket-clone');
 
   itemName: string = '';
+  itemPrice: number = 0;
+  itemDescription: string = '';
 
   items: Item[] = [
     {
       id: 1,
       title: 'Car',
       sold: false,
+      description: 'Red Mercedes CLS',
+      price: 10000
     },
     {
       id: 2,
       title: 'Laptop',
       sold: true,
+      description: 'White Apple',
+      price: 3000
     }
   ];
 
@@ -40,11 +48,15 @@ export class App {
       id: Date.now(),
       title: this.itemName,
       sold: false,
+      description: this.itemDescription,
+      price: this.itemPrice
     };
 
     this.items.push(newItem);
 
     this.itemName = '';
+    this.itemDescription = '';
+    this.itemPrice = 0;
   }
 
   deleteItem(id: number): void {
