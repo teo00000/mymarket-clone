@@ -10,6 +10,9 @@
     @for (item of items; track item.id) {
     <div class="item-container">
       <li class="item-title">{{ item.title }}</li>
+      <button (click)="deleteItem(item.id)">
+        Delete
+      </button>
     </div>
     }
   </div>

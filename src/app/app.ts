@@ -46,4 +46,8 @@ export class App {
 
     this.itemName = '';
   }
+
+  deleteItem(id: number): void {
+    this.items = this.items.filter(item => item.id !== id);
+  }
 }
