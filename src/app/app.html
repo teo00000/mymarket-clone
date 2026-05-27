@@ -1,11 +1,15 @@
 <div class="main-container">
   <h1 class="items-header">Items</h1>
 
-  <form (ngSubmit)="addItem()" class="form">
-    <input type="text" [(ngModel)]="itemName" name="itemName" placeholder="Add item">
-    <input type="number" [(ngModel)]="itemPrice" name="itemPrice" placeholder="Enter price">
-    <input type="text" [(ngModel)]="itemDescription" name="itemDescription" placeholder="Enter description">
-    <button type="submit" class="add-btn">Add</button>
+  <form (ngSubmit)="saveItem()" class="form">
+    <input type="text" [(ngModel)]="formItem.title" name="itemName" placeholder="Add item">
+    <input type="number" [(ngModel)]="formItem.price" name="itemPrice" placeholder="Enter price">
+    <textarea type="text" [(ngModel)]="formItem.description" name="itemDescription"
+      placeholder="Enter description"></textarea>
+    
+    <button type="submit">
+      {{ editingMode ? 'Save' : 'Add' }}
+    </button>
   </form>
 
   <div class="wrapper">
@@ -16,9 +20,14 @@
       <p>Price: {{ item.price }}$</p>
       <p>{{ item.description }}</p>
 
-      <button (click)="deleteItem(item.id)">
-        Delete
-      </button>
+      <div class="buttons">
+        <button (click)="editItem(item.id)">
+          Edit
+        </button>
+        <button (click)="deleteItem(item.id)">
+          Delete
+        </button>
+      </div>
     </div>
     }
   </div>

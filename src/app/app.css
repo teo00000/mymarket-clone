@@ -78,3 +78,8 @@ input::placeholder {
     font-size: 30px;
     font-weight: bold;
 }
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
