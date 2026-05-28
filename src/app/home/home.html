@@ -1,32 +1,21 @@
-<h1 class="items-header">Items</h1>
+<div class="main-container">
+    <h1 class="items-header">Items</h1>
 
-<form (ngSubmit)="saveItem()" class="form">
-    <input type="text" [(ngModel)]="formItem.title" name="itemName" placeholder="Add item">
-    <input type="number" [(ngModel)]="formItem.price" name="itemPrice" placeholder="Enter price">
-    <textarea type="text" [(ngModel)]="formItem.description" name="itemDescription"
-        placeholder="Enter description"></textarea>
+    <form (ngSubmit)="saveItem()" class="form">
+        <input type="text" [(ngModel)]="formItem.title" name="itemName" placeholder="Add item">
+        <input type="number" [(ngModel)]="formItem.price" name="itemPrice" placeholder="Enter price">
+        <textarea type="text" [(ngModel)]="formItem.description" name="itemDescription"
+            placeholder="Enter description"></textarea>
 
-    <button type="submit">
-        {{ editingMode ? 'Save' : 'Add' }}
-    </button>
-</form>
+        <button type="submit">
+            {{ editingMode ? 'Save' : 'Add' }}
+        </button>
+    </form>
 
-<div class="wrapper">
-    @for (item of items; track item.id) {
-    <div class="item-container">
-        <li class="item-title">{{ item.title }}</li>
+    <app-product-list
+    [items]="items"
+    (delete)="deleteItem($event)"
+    (edit)="editItem($event)">
 
-        <p>Price: {{ item.price }}$</p>
-        <p>{{ item.description }}</p>
-
-        <div class="buttons">
-            <button (click)="editItem(item.id)">
-                Edit
-            </button>
-            <button (click)="deleteItem(item.id)">
-                Delete
-            </button>
-        </div>
-    </div>
-    }
+    </app-product-list>
 </div>

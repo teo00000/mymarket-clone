@@ -1,0 +1,23 @@
+.item-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #eee;
+    height: 200px;
+    background-color: aliceblue;
+    border-radius: 10px;
+    margin-bottom: 8px;
+}
+
+.item-title {
+    list-style: none;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}

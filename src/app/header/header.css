@@ -1,17 +1,11 @@
 .info {
     display: flex;
     gap: 20px;
-    margin: 20px;
-    padding: 20px;
+    float: right;
 }
 
-.info button {
-    flex: 1;
-    padding: 10px;
-    font-size: 20px;
-    background-color: orange;
-    border-radius: 5px;
+a {
+    text-decoration: none;
+    font-size: 1.1rem;
     font-weight: bold;
-    border: 1px solid rgb(181, 180, 180);
-    color: rgb(61, 61, 61);
 }

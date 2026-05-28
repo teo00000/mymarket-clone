@@ -1,0 +1,15 @@
+<div class="item-container">
+  <li class="item-title">{{ item.title }}</li>
+
+  <p>Price: {{ item.price }}$</p>
+  <p>{{ item.description }}</p>
+
+  <div class="buttons">
+    <button (click)="edit.emit(item.id)">
+      Edit
+    </button>
+    <button (click)="delete.emit(item.id)">
+      Delete
+    </button>
+  </div>
+</div>

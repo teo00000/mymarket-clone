@@ -1,0 +1,9 @@
+<div class="wrapper">
+  @for (item of items; track item.id) {
+  <app-product-card
+    [item]="item"
+    (delete)="delete.emit($event)"
+    (edit)="edit.emit($event)">
+  </app-product-card>
+  }
+</div>

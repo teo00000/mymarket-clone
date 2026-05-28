@@ -1,17 +1,11 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
-interface Item {
-  id: number;
-  title: string;
-  sold: boolean;
-  description: string;
-  price: number;
-}
+import { Item } from '../models/item.interface'
+import { ProductList } from './product-list/product-list';
 
 @Component({
   selector: 'app-home',
-  imports: [FormsModule],
+  imports: [FormsModule, ProductList],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
