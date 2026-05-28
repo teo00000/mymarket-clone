@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { JsonPipe } from '@angular/common';
-// import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterLinkWithHref } from '@angular/router';
 
 interface Item {
   id: number;
@@ -13,8 +13,7 @@ interface Item {
 
 @Component({
   selector: 'app-root',
-  // imports: [RouterOutlet],
-  imports: [FormsModule, JsonPipe],
+  imports: [RouterOutlet, FormsModule, JsonPipe, RouterLinkWithHref],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

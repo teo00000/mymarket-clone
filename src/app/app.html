@@ -33,9 +33,12 @@
   </div>
 
   <div class="info">
-    <button>About</button>
-    <button>Contact</button>
+    <button routerLink="">Home</button>
+    <button routerLink="/about">About</button>
+    <button routerLink="/contact">Contact</button>
   </div>
+
+  <router-outlet></router-outlet>
 
   <pre>{{ items | json }}</pre>
 </div>
