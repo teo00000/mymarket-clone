@@ -10,6 +10,5 @@ import { Header } from './header/header';
 })
 export class App {
   protected readonly title = signal('mymarket-clone');
-
   
 }

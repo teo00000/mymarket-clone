@@ -1,16 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { DataService } from '../services/data';
 import { FormsModule } from '@angular/forms';
-import { Item } from '../models/item.interface'
+import { Item } from '../models/item.interface';
 import { ProductList } from './product-list/product-list';
 
 @Component({
   selector: 'app-home',
+  standalone: true,
   imports: [FormsModule, ProductList],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
 
 export class Home {
+  private dataService = inject(DataService);
   editingMode = false;
 
   formItem: Item = {
@@ -46,17 +49,7 @@ export class Home {
   }
 
   saveItem() {
-    if (this.editingMode) {
-      const index = this.items.findIndex((i) => i.id === this.formItem.id);
-      if (index !== -1) {
-        this.items[index] = { ...this.formItem };
-      }
-    } else {
-      this.items.push({
-        ...this.formItem,
-        id: Date.now(),
-      });
-    }
+    this.dataService.saveItem(this.formItem, this.editingMode);
     this.resetForm();
   }
 
