@@ -13,7 +13,7 @@
     </form>
 
     <app-product-list
-    [items]="items"
+    [items]="items()" 
     (delete)="deleteItem($event)"
     (edit)="editItem($event)">
 

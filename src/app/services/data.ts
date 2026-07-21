@@ -5,7 +5,22 @@ import { Item } from '../models/item.interface';
   providedIn: 'root',
 })
 export class DataService {
-  private itemsSignal = signal<Item[]>([]);
+  private itemsSignal = signal<Item[]>([
+    {
+      id: 1,
+      title: 'Car',
+      sold: false,
+      description: 'Red Mercedes CLS',
+      price: 10000,
+    },
+    {
+      id: 2,
+      title: 'Laptop',
+      sold: true,
+      description: 'White Apple',
+      price: 3000,
+    },
+  ]);
 
   public items = this.itemsSignal.asReadonly();
 
@@ -23,5 +38,11 @@ export class DataService {
         return [...currentItems, newItem];
       }
     });
+  }
+
+  deleteItem(id: number): void {
+    this.itemsSignal.update(items => 
+      items.filter(item => item.id !== id)
+    );
   }
 }

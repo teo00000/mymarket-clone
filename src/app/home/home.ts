@@ -23,25 +23,11 @@ export class Home {
     description: '',
     price: 0,
   };
-  items: Item[] = [
-    {
-      id: 1,
-      title: 'Car',
-      sold: false,
-      description: 'Red Mercedes CLS',
-      price: 10000,
-    },
-    {
-      id: 2,
-      title: 'Laptop',
-      sold: true,
-      description: 'White Apple',
-      price: 3000,
-    },
-  ];
+
+  items = this.dataService.items;
 
   editItem(id: number): void {
-    const foundItem = this.items.find((i) => i.id === id);
+    const foundItem = this.items().find((i) => i.id === id);
     if (foundItem) {
       this.formItem = { ...foundItem };
       this.editingMode = true;
@@ -54,7 +40,7 @@ export class Home {
   }
 
   deleteItem(id: number): void {
-    this.items = this.items.filter((item) => item.id !== id);
+    this.dataService.deleteItem(id);
   }
 
   resetForm(): void {
