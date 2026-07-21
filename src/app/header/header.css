@@ -1,11 +1,16 @@
-.info {
+.navbar {
     display: flex;
     gap: 20px;
-    float: right;
+    justify-content: flex-end;
 }
 
 a {
     text-decoration: none;
     font-size: 1.1rem;
     font-weight: bold;
+}
+
+.header {
+    text-align: center;
+    margin: 50px;
 }

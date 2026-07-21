@@ -1,17 +1,4 @@
 <div class="main-container">
-    <h1 class="items-header">Items</h1>
-
-    <form (ngSubmit)="saveItem()" class="form">
-        <input type="text" [(ngModel)]="formItem.title" name="itemName" placeholder="Add item">
-        <input type="number" [(ngModel)]="formItem.price" name="itemPrice" placeholder="Enter price">
-        <textarea type="text" [(ngModel)]="formItem.description" name="itemDescription"
-            placeholder="Enter description"></textarea>
-
-        <button type="submit">
-            {{ editingMode ? 'Save' : 'Add' }}
-        </button>
-    </form>
-
     <app-product-list
     [items]="items()" 
     (delete)="deleteItem($event)"
