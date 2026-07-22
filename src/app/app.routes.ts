@@ -3,6 +3,8 @@ import { App } from './app';
 import { About } from './about/about';
 import { Contact } from './contact/contact';
 import { Home } from './home/home'
+import { ItemForm } from './item-form/item-form';
+import { ProductDetails } from './product-details/product-details';
 
 export const routes: Routes = [
   {
@@ -16,5 +18,13 @@ export const routes: Routes = [
   {
     path: 'contact',
     component: Contact
+  },
+  {
+    path: 'item-form',
+    component: ItemForm
+  },
+  {
+    path: 'product-details',
+    component: ProductDetails
   }
 ];
