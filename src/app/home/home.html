@@ -1,9 +1,6 @@
 <div class="searchAndAdd">
     <input class="searchField" type="text" placeholder="🔍 Search">
-    <div class="addField">
-        <label for="" class="addProduct">Add product</label>
-        <input type="text" class="add">
-    </div>
+    <button routerLink="/item-form" class="add-btn">+ Add Product</button>
 </div>
 <app-product-list [items]="items()" (delete)="deleteItem($event)" (edit)="editItem($event)">
 

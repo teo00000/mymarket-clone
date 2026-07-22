@@ -3,11 +3,12 @@ import { DataService } from '../services/data';
 import { FormsModule } from '@angular/forms';
 import { Item } from '../models/item.interface';
 import { ProductList } from './product-list/product-list';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [FormsModule, ProductList],
+  imports: [FormsModule, ProductList, RouterLink],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
@@ -41,6 +42,10 @@ export class Home {
 
   deleteItem(id: number): void {
     this.dataService.deleteItem(id);
+  }
+
+  addProduct() {
+
   }
 
   resetForm(): void {

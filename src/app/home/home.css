@@ -2,25 +2,12 @@
     display: flex;
     gap: 1.5rem;
     margin-bottom: 1rem;
-}
-
-.searchField {
-    flex-grow: 3;
-}
-
-.addField {
-    display: flex;
-    gap: 1rem;
-    flex-grow: 1;
     align-items: center;
 }
 
-.addProduct {
-    font-size: 1.1rem;
-}
-
-.add {
+.searchField {
     flex: 1;
+    max-width: 800px;
 }
 
 input {
@@ -43,13 +30,17 @@ input::placeholder {
 }
 
 .add-btn {
-    padding: 8px 25px;
-    width: 150px;
-    border-radius: 10px;
-    border: none;
+    white-space: nowrap;
+    border: 1px solid #d0d5dd;
+    padding: 0.7rem;
+    width: 12rem;
+    border-radius: 1rem;
     cursor: pointer;
+    font-size: 1.05rem;
+    background-color: rgb(38, 239, 38);
+    margin-left: auto;
 }
 
 .add-btn:hover {
-    background-color: rgb(231, 230, 230);
+    background-color: rgb(136, 242, 126);
 }
