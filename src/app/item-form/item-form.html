@@ -1,10 +1,19 @@
-<form (ngSubmit)="saveItem()" class="form">
-  <input type="text" [(ngModel)]="formItem.title" name="itemName" placeholder="Add item">
-  <input type="number" [(ngModel)]="formItem.price" name="itemPrice" placeholder="Enter price">
-  <textarea type="text" [(ngModel)]="formItem.description" name="itemDescription"
-    placeholder="Enter description"></textarea>
+<form class="form" [formGroup]="form" (ngSubmit)="saveItem()">
+  <label for="title">Product name</label>
+  <input id="title" type="text"
+    placeholder="Enter product name" formControlName="title">
 
-  <button type="submit">
-    {{ editingMode ? 'Save' : 'Add' }}
-  </button>
+  <label for="price">Price</label>
+  <input required min="0" id="price" type="number" placeholder="0.00" formControlName="price">
+
+  <label for="description">Description</label>
+  <textarea id="description" type="text"
+    placeholder="Describe the product" formControlName="description"></textarea>
+
+  <div class="actions">
+    <button type="button">Cancel</button>
+    <button type="submit" [disabled]="form.invalid">
+      {{ editingMode ? 'Save Changes' : 'Add Product' }}
+    </button>
+  </div>
 </form>

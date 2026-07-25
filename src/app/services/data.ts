@@ -24,25 +24,21 @@ export class DataService {
 
   public items = this.itemsSignal.asReadonly();
 
-  saveItem(formItem: Item, editingMode: boolean) {
-    this.itemsSignal.update(currentItems => {
-      if (editingMode) {
-        return currentItems.map(item => 
-          item.id === formItem.id ? { ...formItem } :item
-        );
-      } else {
-        const newItem: Item = {
-          ...formItem,
-          id: Date.now(),
-        };
-        return [...currentItems, newItem];
-      }
-    });
+  deleteItem(id: number): void {
+    this.itemsSignal.update((items) => items.filter((item) => item.id !== id));
   }
 
-  deleteItem(id: number): void {
-    this.itemsSignal.update(items => 
-      items.filter(item => item.id !== id)
+  getItemById(id: number) {
+    return this.items().find((item) => item.id === id);
+  }
+
+  updateItem(updatedItem: Item) {
+    this.itemsSignal.update((items) =>
+      items.map((item) => (item.id === updatedItem.id ? updatedItem : item)),
     );
+  }
+
+  addItem(item: Item) {
+    this.itemsSignal.update((items) => [...items, item]);
   }
 }

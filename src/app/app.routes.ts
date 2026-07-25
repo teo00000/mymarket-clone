@@ -24,6 +24,10 @@ export const routes: Routes = [
     component: ItemForm
   },
   {
+    path: 'item-form/:id',
+    component: ItemForm
+  },
+  {
     path: 'product-details',
     component: ProductDetails
   }

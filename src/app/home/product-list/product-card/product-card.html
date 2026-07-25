@@ -5,10 +5,10 @@
   <p>{{ item.description }}</p>
 
   <div class="buttons">
-    <button (click)="edit.emit(item.id)">
+    <button (click)="onEdit(item.id)">
       Edit
     </button>
-    <button (click)="delete.emit(item.id)">
+    <button (click)="onDelete(item.id)">
       Delete
     </button>
   </div>

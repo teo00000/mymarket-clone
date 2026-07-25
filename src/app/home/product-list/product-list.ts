@@ -12,5 +12,12 @@ export class ProductList {
   @Input() items: Item[] = [];
 
   @Output() delete = new EventEmitter<number>();
+  onDelete(id: number) {
+    this.delete.emit(id);
+  }
+
   @Output() edit = new EventEmitter<number>();
+  onEdit(id: number) {
+    this.edit.emit(id);
+  }
 }
