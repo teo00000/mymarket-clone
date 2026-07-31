@@ -60,3 +60,24 @@ During this project I practiced:
 ## Future Improvements
 
 - Search products
+- Persist data with a backend or Local Storage
+- Form Validation
+- Product Details Page
+- Fake backend integration(JSON Server)
+- Loading State
+- Empty State
+- Delete confirmation Dialog
+- Success/error notifications
+- Product sorting
+- Category Filtering
+- Pagination
+- Responsive design improvements
+- Unit Tests
+
+## Author
+
+Developed by **Teona Papiashvili**
+
+I'm currently learning Angular and building projects to strengthen my frontend development skills. Feedback, suggestions and contributions are always welcome.
+
+GitHub: https://github.com/teo00000
