@@ -1,59 +1,62 @@
-# MymarketClone
+# Mymarket-clone
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.10.
+A simple mymarket-clone application built with Angular. Users can browse products, add new products, delete or edit them.
 
-## Development server
+## Features
 
-To start a local development server, run:
+- Display a list of products
+- Add products
+- Delete products
+- Edit products
+
+## Technologies
+
+- Angular
+- Typescript
+- HTML
+- CSS
+- Angular Signals
+
+## Project Structure
+
+- **home/** - Main product management view
+  - Product list
+  - Search
+  - Add/Edit form
+  - Product cards
+- **shared/** - Models and services
+
+-**app.routes.ts** - Routing configuration
+
+## Instalation
 
 ```bash
+git clone https://https://github.com/teo00000/mymarket-clone
+cd mymarket-clone
+npm install
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Navigate to: 
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```
+http://localhost:4200
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## What I Learned
 
-```bash
-ng generate --help
-```
+During this project I practiced: 
 
-## Building
+- Angular components
+- Standalone components
+- Routing
+- Angular signals
+- Component communication
+- Event binding
+- Property binding
+- Reactive forms
+- State management with Signals
 
-To build the project run:
+## Future Improvements
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Search products
