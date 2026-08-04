@@ -13,20 +13,21 @@ import { Router } from '@angular/router';
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
-export class Home implements OnInit {
+export class Home {
   private dataService = inject(DataService);
   private router = inject(Router);
 
-  items!: Item[];
+  items = this.dataService.items;
 
-  ngOnInit(): void {
-    this.items = this.dataService.items();
-  }
   deleteItem(id: number): void {
     this.dataService.deleteItem(id);
   }
 
   editItem(id: number) {
     this.router.navigate(['/item-form', id]);
+  }
+
+  onOpenDetails(id: number) {
+    this.router.navigate(['/product-details', id]);
   }
 }

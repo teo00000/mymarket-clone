@@ -3,7 +3,9 @@
   <app-product-card
     [item]="item"
     (delete)="onDelete($event)"
-    (edit)="onEdit($event)">
+    (edit)="onEdit($event)"
+    (view)="onClick($event)"
+  >
   </app-product-card>
   }
 </div>
