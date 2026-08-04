@@ -17,7 +17,7 @@ export class ItemForm implements OnInit {
   form = new FormGroup({
     title: new FormControl(''),
     price: new FormControl(0),
-    description: new FormControl(''),
+    shortDescription: new FormControl(''),
   });
 
   id!: number;
@@ -51,8 +51,9 @@ export class ItemForm implements OnInit {
         id: this.id,
         title: formValue.title ?? '',
         price: formValue.price ?? 0,
-        description: formValue.description ?? '',
-        sold: false,
+        shortDescription: formValue.shortDescription ?? '',
+        availability: false,
+        description: '',
       };
       this.dataService.updateItem(item);
       this.router.navigate(['/']);
@@ -61,8 +62,9 @@ export class ItemForm implements OnInit {
         id: Date.now(),
         title: formValue.title ?? '',
         price: formValue.price ?? 0,
-        description: formValue.description ?? '',
-        sold: false,
+        shortDescription: formValue.shortDescription ?? '',
+        availability: false,
+        description: '',
       };
       this.dataService.addItem(item);
     }

@@ -1,1 +1,9 @@
-<p>product-details works!</p>
+@if (product(); as item) {
+<h1>{{ item.title }}</h1>
+<p>Price: {{ item.price }}$</p>
+<p>Description</p>
+<p>{{ item.description }}</p>
+<p>{{ item.availability ? "🟢 Available" : "🔴 Sold" }}</p>
+} @else {
+  <p>Loading product details...</p>
+}

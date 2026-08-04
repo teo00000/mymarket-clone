@@ -1,7 +1,8 @@
 export interface Item {
   id: number;
   title: string;
-  sold: boolean;
-  description: string;
+  availability: boolean;
+  shortDescription: string;
   price: number;
+  description: string;
 }

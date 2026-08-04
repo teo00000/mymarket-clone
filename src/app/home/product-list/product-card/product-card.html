@@ -1,8 +1,8 @@
 <div class="item-container" (click)="viewDetails()">
   <li class="item-title">{{ item.title }}</li>
 
-  <p>Price: {{ item.price }}$</p>
-  <p>{{ item.description }}</p>
+  <p>{{ item.price }}$</p>
+  <p>{{ item.shortDescription }}</p>
 
   <div class="buttons">
     <button (click)="onEdit(); $event.stopPropagation()">
