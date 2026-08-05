@@ -18,11 +18,12 @@ input {
     outline: none;
     transition: all 0.2s ease;
     background: #fff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 input:focus {
     border-color: #6366f1;
-    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
 }
 
 input::placeholder {

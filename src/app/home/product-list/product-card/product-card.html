@@ -2,7 +2,7 @@
   <li class="item-title">{{ item.title }}</li>
 
   <p>{{ item.price }}$</p>
-  <p>{{ item.shortDescription }}</p>
+  <p class="shortDescription">{{ item.shortDescription }}</p>
 
   <div class="buttons">
     <button (click)="onEdit(); $event.stopPropagation()">
