@@ -10,18 +10,9 @@ import { Item } from '../../models/item.interface';
   styleUrl: './product-list.css',
 })
 export class ProductList {
+  // Used in template to display products
   @Input() items: Item[] = [];
-
-  @Output() delete = new EventEmitter<number>();
-  onDelete(id: number) {
-    this.delete.emit(id);
-  }
-
-  @Output() edit = new EventEmitter<number>();
-  onEdit(id: number) {
-    this.edit.emit(id);
-  }
-
+  
   @Output() openDetails = new EventEmitter<number>();
   onClick(id: number) {
     this.openDetails.emit(id);

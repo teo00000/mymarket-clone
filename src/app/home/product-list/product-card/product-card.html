@@ -3,13 +3,4 @@
 
   <p>{{ item.price }}$</p>
   <p class="shortDescription">{{ item.shortDescription }}</p>
-
-  <div class="buttons">
-    <button (click)="onEdit(); $event.stopPropagation()">
-      Edit
-    </button>
-    <button (click)="onDelete(); $event.stopPropagation()">
-      Delete
-    </button>
-  </div>
 </div>

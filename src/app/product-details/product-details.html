@@ -4,6 +4,14 @@
 <p>Description</p>
 <p>{{ item.description }}</p>
 <p>{{ item.availability ? "🟢 Available" : "🔴 Sold" }}</p>
+<div class="buttons">
+  <button [routerLink]="['/products',]">
+    Edit
+  </button>
+  <button (click)="onDelete(); $event.stopPropagation()">
+    Delete
+  </button>
+</div>
 } @else {
-  <p>Loading product details...</p>
+<p>Loading product details...</p>
 }

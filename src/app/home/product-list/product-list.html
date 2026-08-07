@@ -2,8 +2,6 @@
   @for (item of items; track item.id) {
   <app-product-card
     [item]="item"
-    (delete)="onDelete($event)"
-    (edit)="onEdit($event)"
     (view)="onClick($event)"
   >
   </app-product-card>

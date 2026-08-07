@@ -11,16 +11,6 @@ import { Item } from '../../../models/item.interface';
 export class ProductCard {
   @Input() item!: Item;
 
-  @Output() delete = new EventEmitter<number>();
-  onDelete() {
-    this.delete.emit(this.item.id);
-  }
-
-  @Output() edit = new EventEmitter<number>();
-  onEdit() {
-    this.edit.emit(this.item.id);
-  }
-
   @Output() view = new EventEmitter<number>();
   viewDetails() {
     this.view.emit(this.item.id);
