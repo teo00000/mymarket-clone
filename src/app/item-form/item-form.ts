@@ -39,34 +39,28 @@ export class ItemForm implements OnInit {
     }
   }
 
-  saveItem() {
+  onSubmit() {
     if (this.form.invalid) {
       return;
     }
 
     const formValue = this.form.value;
 
+    const item: Item = {
+      id: this.editingMode ? this.id : Date.now(),
+      title: formValue.title ?? '',
+      price: formValue.price ?? 0,
+      shortDescription: formValue.shortDescription ?? '',
+      availability: true,
+      description: '',
+    };
+
     if (this.editingMode) {
-      const item: Item = {
-        id: this.id,
-        title: formValue.title ?? '',
-        price: formValue.price ?? 0,
-        shortDescription: formValue.shortDescription ?? '',
-        availability: false,
-        description: '',
-      };
       this.dataService.updateItem(item);
-      this.router.navigate(['/']);
     } else {
-      const item: Item = {
-        id: Date.now(),
-        title: formValue.title ?? '',
-        price: formValue.price ?? 0,
-        shortDescription: formValue.shortDescription ?? '',
-        availability: false,
-        description: '',
-      };
       this.dataService.addItem(item);
     }
+
+    this.router.navigate(['/']);
   }
 }

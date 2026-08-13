@@ -1,7 +1,7 @@
 <div class="searchAndAdd">
-    <input class="searchField" type="text" placeholder="🔍 Search">
+    <input class="searchField" type="text" (input)="onSearch($event)" placeholder="🔍 Search">
     <button routerLink="/item-form" class="add-btn">+ Add Product</button>
 </div>
-<app-product-list [items]="items()" (delete)="deleteItem($event)" (edit)="editItem($event)" (openDetails)="onOpenDetails($event)">
+<app-product-list [items]="filteredProducts()" (openDetails)="onOpenDetails($event)">
 
 </app-product-list>
