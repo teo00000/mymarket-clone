@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Item } from '../models/item.interface';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../services/data';
 import { OnInit } from '@angular/core';
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-item-form',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './item-form.html',
   styleUrl: './item-form.css',
 })
@@ -24,6 +24,8 @@ export class ItemForm implements OnInit {
 
   editingMode!: boolean;
 
+  item?: Item;
+
   private router = inject(Router);
   private route = inject(ActivatedRoute);
   private dataService = inject(DataService);
@@ -32,33 +34,37 @@ export class ItemForm implements OnInit {
     this.id = Number(this.route.snapshot.paramMap.get('id') ?? 0);
     this.editingMode = this.id > 0;
     if (this.editingMode) {
-      const item = this.dataService.getItemById(this.id);
-      if (item) {
-        this.form.patchValue(item);
+      this.item = this.dataService.getItemById(this.id);
+      if (this.item) {
+        this.form.patchValue(this.item);
       }
     }
   }
 
   onSubmit() {
-    if (this.form.invalid) {
-      return;
-    }
+    if(this.editingMode) {
+      if(!this.item) {
+        return;
+      }
 
-    const formValue = this.form.value;
+      const updatedItem: Item = {
+        ...this.item,
+        title: this.form.value.title ?? '',
+        price: this.form.value.price ?? 0,
+        shortDescription: this.form.value.shortDescription ?? '',
+      }
 
-    const item: Item = {
-      id: this.editingMode ? this.id : Date.now(),
-      title: formValue.title ?? '',
-      price: formValue.price ?? 0,
-      shortDescription: formValue.shortDescription ?? '',
-      availability: true,
-      description: '',
-    };
-
-    if (this.editingMode) {
-      this.dataService.updateItem(item);
+      this.dataService.updateItem(updatedItem);
     } else {
-      this.dataService.addItem(item);
+      const newItem: Item = {
+        id: Date.now(),
+        title: this.form.value.title ?? '',
+        price: this.form.value.price ?? 0,
+        shortDescription: this.form.value.shortDescription ?? '',
+        availability: true,
+        description: '',
+      }
+      this.dataService.addItem(newItem);
     }
 
     this.router.navigate(['/']);
