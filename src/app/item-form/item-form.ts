@@ -69,4 +69,8 @@ export class ItemForm implements OnInit {
 
     this.router.navigate(['/']);
   }
+
+  cancel(): void {
+    this.router.navigate(['/']);
+  }
 }

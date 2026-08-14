@@ -11,7 +11,7 @@
     placeholder="Describe the product" formControlName="shortDescription"></textarea>
 
   <div class="actions">
-    <button type="button">Cancel</button>
+    <button type="button" (click)="cancel()">Cancel</button>
     <button type="submit" [disabled]="form.invalid">
       {{ editingMode ? 'Save Changes' : 'Add Product' }}
     </button>
