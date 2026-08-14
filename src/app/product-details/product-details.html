@@ -5,7 +5,7 @@
 <p>{{ item.description }}</p>
 <p>{{ item.availability ? "🟢 Available" : "🔴 Sold" }}</p>
 <div class="buttons">
-  <button [routerLink]="['/products',]">
+  <button [routerLink]="['/item-form', product()?.id]">
     Edit
   </button>
   <button (click)="onDelete(); $event.stopPropagation()">

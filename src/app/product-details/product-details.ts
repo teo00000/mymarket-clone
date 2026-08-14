@@ -29,13 +29,4 @@ export class ProductDetails {
 
     this.router.navigate(['/']);
   }
-
-  @Output() edit = new EventEmitter<number>();
-  onEdit() {
-    const product = this.product();
-
-    if (product) {
-      this.edit.emit(product.id);
-    }
-  }
 }
