@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Item } from '../models/item.interface';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../services/data';
 import { OnInit } from '@angular/core';
@@ -15,9 +15,18 @@ import { Router } from '@angular/router';
 })
 export class ItemForm implements OnInit {
   form = new FormGroup({
-    title: new FormControl(''),
-    price: new FormControl(0),
-    shortDescription: new FormControl(''),
+    title: new FormControl('', [
+      Validators.required,
+      Validators.minLength(3)
+    ]),
+    price: new FormControl(0, [
+      Validators.required,
+      Validators.min(1)
+    ]),
+    shortDescription: new FormControl('', [
+      Validators.required,
+      Validators.minLength(10)
+    ]),
   });
 
   id!: number;
