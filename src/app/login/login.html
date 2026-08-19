@@ -1,0 +1,19 @@
+<form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <input type="email" placeholder="Email" formControlName="email">
+
+  @if (submitted && loginForm.controls.email.hasError('required')) {
+    <small>Email is required.</small>
+  }
+
+  @if (submitted && loginForm.controls.email.hasError('email')) {
+    <small>Please enter a valid email.</small>
+  }
+
+  <input type="password" placeholder="Password" formControlName="password">
+
+  @if (submitted && loginForm.controls.password.hasError('required')) {
+    <small>Password is required.</small>
+  }
+
+  <button type="submit">Login</button>
+</form>

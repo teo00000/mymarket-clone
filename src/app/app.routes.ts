@@ -4,6 +4,9 @@ import { Contact } from './contact/contact';
 import { Home } from './home/home'
 import { ItemForm } from './item-form/item-form';
 import { ProductDetails } from './product-details/product-details';
+import { authGuard } from './guards/auth-guard';
+import { Login } from './login/login';
+import { Dashboard } from './dashboard/dashboard';
 
 export const routes: Routes = [
   {
@@ -24,10 +27,19 @@ export const routes: Routes = [
   },
   {
     path: 'item-form/:id',
-    component: ItemForm
+    component: ItemForm,
   },
   {
     path: 'product-details/:id',
     component: ProductDetails
+  },
+  {
+    path: 'login',
+    component: Login
+  },
+  {
+    path: 'dashboard',
+    component: Dashboard,
+    canActivate: [authGuard]
   }
 ];

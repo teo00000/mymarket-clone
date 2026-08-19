@@ -1,0 +1,51 @@
+import { Component, inject } from '@angular/core';
+import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from '../services/auth-service';
+import { Router } from '@angular/router';
+
+@Component({
+  standalone: true,
+  selector: 'app-login',
+  imports: [ReactiveFormsModule],
+  templateUrl: './login.html',
+  styleUrl: './login.css',
+})
+export class Login {
+  private authService = inject(AuthService);
+  private router = inject(Router);
+
+  loginForm = new FormGroup({
+    email: new FormControl('', {
+      nonNullable: true,
+      validators: [Validators.required, Validators.email]
+    }),
+
+    password: new FormControl('', {
+      nonNullable: true,
+      validators: [Validators.required]
+    })
+  });
+
+  submitted = false;
+
+  onSubmit(): void {
+    this.submitted = true;
+    console.log('SUBMIT FIRED');
+
+    console.log('FORM:', this.loginForm);
+    console.log('VALID', this.loginForm.valid);
+    console.log('VALUE:', this.loginForm.value);
+
+    if(this.loginForm.invalid) {
+      console.log('FORM IS INVALID');
+
+      this.loginForm.markAllAsTouched();
+      return;
+    }
+
+    console.log('FORM IS VALID');
+
+    this.authService.login();
+    this.router.navigate(['/dashboard']);
+  }
+}

@@ -7,6 +7,14 @@
     <a routerLink="">Home</a>
     <a routerLink="/about">About</a>
     <a routerLink="/contact">Contact</a>
+    @if (authService.isLoggedIn()) {
+    <a routerLink="/dashboard">Dashboard</a>
+    <button (click)="logout()">Logout</button>
+    } @else {
+      <a routerLink="/login">
+        Login
+      </a>
+    }
   </div>
 </div>
 
