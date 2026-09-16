@@ -1,37 +1,84 @@
 # Mymarket-clone
 
-A simple mymarket-clone application built with Angular. Users can browse products, add new products, delete or edit them.
+A marketplace-style CRUD application built with Angular, where users can browse, search, add, edit, and delete product listings.
+
+## Screenshots
+
+### Home
+
+![MyMarket Home](./screenshots/home.png)
+
+### Product Details
+
+![Product Details](./screenshots/product-details.png)
+
+### Add/Edit Product
+
+![Item Form](./screenshots/item-form.png)
+
+### Login
+
+![Login](./screenshots/login.png)
 
 ## Features
 
-- Display a list of products
-- Add products
-- Delete products
-- Edit products
+- Browse product listings
+- Search products
+- View product details
+- Add new listings
+- Edit existing listings
+- Delete listings
+- Responsive layout
 
 ## Technologies
 
 - Angular
-- Typescript
-- HTML
-- CSS
+- TypeScript
 - Angular Signals
+- Reactive Forms
+- Angular Router
+- HTML5
+- CSS3
+
+## Angular Concepts
+
+- Standalone components
+- Component communication with @Input() and @Output()
+- Angular Signals and computed state
+- Reactive Forms and form validation
+- Routing and route parameters
+- Event binding and property binding
+- Dependency injection
+- Service-based state management
 
 ## Project Structure
 
-- **home/** - Main product management view
-  - Product list
-  - Search
-  - Add/Edit form
-  - Product cards
-- **shared/** - Models and services
+src/
+└── app/
+    ├── about/
+    ├── contact/
+    ├── dashboard/
+    ├── guards/
+    |   └── auth-guard.ts
+    ├── header/
+    ├── home/
+    |   └── product-list/
+    |       └── product-card/
+    ├── item-form/
+    ├── login/
+    ├── product-details/
+    ├── shared/
+    |   ├── models/
+    |   |   ├── item.interface.ts
+    |   └── services
+    |       ├── auth-service.ts
+    |       └── data.ts
+    └── app.routes.ts
 
--**app.routes.ts** - Routing configuration
-
-## Instalation
+## Installation
 
 ```bash
-git clone https://https://github.com/teo00000/mymarket-clone
+git clone https://github.com/teo00000/mymarket-clone
 cd mymarket-clone
 npm install
 ng serve
@@ -42,37 +89,6 @@ Navigate to:
 ```
 http://localhost:4200
 ```
-
-## What I Learned
-
-During this project I practiced: 
-
-- Angular components
-- Standalone components
-- Routing
-- Angular signals
-- Component communication
-- Event binding
-- Property binding
-- Reactive forms
-- State management with Signals
-
-## Future Improvements
-
-- Search products
-- Persist data with a backend or Local Storage
-- Form Validation
-- Product Details Page
-- Fake backend integration(JSON Server)
-- Loading State
-- Empty State
-- Delete confirmation Dialog
-- Success/error notifications
-- Product sorting
-- Category Filtering
-- Pagination
-- Responsive design improvements
-- Unit Tests
 
 ## Author
 

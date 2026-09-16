@@ -1,6 +1,6 @@
-import { Component, computed, EventEmitter, inject, Input, Output } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { DataService } from '../services/data';
+import { DataService } from '../shared/services/data.service';
 import { Router } from '@angular/router';
 
 @Component({

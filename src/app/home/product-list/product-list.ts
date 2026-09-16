@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ProductCard } from './product-card/product-card';
-import { Item } from '../../models/item.interface';
+import { Item } from '../../shared/models/item.interface';
 
 @Component({
   selector: 'app-product-list',
@@ -12,7 +12,7 @@ import { Item } from '../../models/item.interface';
 export class ProductList {
   // Used in template to display products
   @Input() items: Item[] = [];
-  
+
   @Output() openDetails = new EventEmitter<number>();
   onClick(id: number) {
     this.openDetails.emit(id);

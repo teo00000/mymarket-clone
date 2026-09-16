@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { Item } from '../models/item.interface';
+import { Item } from '../shared/models/item.interface';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { DataService } from '../services/data';
+import { DataService } from '../shared/services/data.service';
 import { OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -15,18 +15,9 @@ import { Router } from '@angular/router';
 })
 export class ItemForm implements OnInit {
   form = new FormGroup({
-    title: new FormControl('', [
-      Validators.required,
-      Validators.minLength(3)
-    ]),
-    price: new FormControl(0, [
-      Validators.required,
-      Validators.min(1)
-    ]),
-    shortDescription: new FormControl('', [
-      Validators.required,
-      Validators.minLength(10)
-    ]),
+    title: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    price: new FormControl(0, [Validators.required, Validators.min(1)]),
+    shortDescription: new FormControl('', [Validators.required, Validators.minLength(10)]),
   });
 
   id!: number;
@@ -51,8 +42,8 @@ export class ItemForm implements OnInit {
   }
 
   onSubmit() {
-    if(this.editingMode) {
-      if(!this.item) {
+    if (this.editingMode) {
+      if (!this.item) {
         return;
       }
 
@@ -61,7 +52,7 @@ export class ItemForm implements OnInit {
         title: this.form.value.title ?? '',
         price: this.form.value.price ?? 0,
         shortDescription: this.form.value.shortDescription ?? '',
-      }
+      };
 
       this.dataService.updateItem(updatedItem);
     } else {
@@ -72,7 +63,7 @@ export class ItemForm implements OnInit {
         shortDescription: this.form.value.shortDescription ?? '',
         availability: true,
         description: '',
-      }
+      };
       this.dataService.addItem(newItem);
     }
 

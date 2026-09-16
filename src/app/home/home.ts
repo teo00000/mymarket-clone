@@ -1,5 +1,5 @@
 import { Component, computed, inject, OnInit, signal } from '@angular/core';
-import { DataService } from '../services/data';
+import { DataService } from '../shared/services/data.service';
 import { FormsModule } from '@angular/forms';
 import { ProductList } from './product-list/product-list';
 import { RouterLink } from '@angular/router';
@@ -16,7 +16,7 @@ export class Home {
   private dataService = inject(DataService);
   private router = inject(Router);
 
-  searchTerm = signal('')
+  searchTerm = signal('');
 
   onOpenDetails(id: number) {
     this.router.navigate(['/product-details', id]);
@@ -26,7 +26,7 @@ export class Home {
     this.router.navigate(['/item-form']);
   }
 
-  onSearch(event: Event): void{
+  onSearch(event: Event): void {
     const value = (event.target as HTMLInputElement).value;
 
     this.searchTerm.set(value);
@@ -36,12 +36,10 @@ export class Home {
     const search = this.searchTerm().trim().toLowerCase();
     const items = this.dataService.items();
 
-    if(!search) {
+    if (!search) {
       return items;
     }
 
-    return items.filter(product => 
-      product.title.toLowerCase().includes(search)
-    );
+    return items.filter((product) => product.title.toLowerCase().includes(search));
   });
 }

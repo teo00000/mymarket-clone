@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { AuthService } from '../services/auth-service';
+import { AuthService } from '../shared/services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -17,13 +17,13 @@ export class Login {
   loginForm = new FormGroup({
     email: new FormControl('', {
       nonNullable: true,
-      validators: [Validators.required, Validators.email]
+      validators: [Validators.required, Validators.email],
     }),
 
     password: new FormControl('', {
       nonNullable: true,
-      validators: [Validators.required]
-    })
+      validators: [Validators.required],
+    }),
   });
 
   submitted = false;
@@ -36,7 +36,7 @@ export class Login {
     console.log('VALID', this.loginForm.valid);
     console.log('VALUE:', this.loginForm.value);
 
-    if(this.loginForm.invalid) {
+    if (this.loginForm.invalid) {
       console.log('FORM IS INVALID');
 
       this.loginForm.markAllAsTouched();

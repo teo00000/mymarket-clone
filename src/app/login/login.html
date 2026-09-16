@@ -1,19 +1,32 @@
-<form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  <input type="email" placeholder="Email" formControlName="email">
+<div class="login-page">
+  <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-header">
+      <h1>Welcome back</h1>
+      <p>Login to your account</p>
+    </div>
 
-  @if (submitted && loginForm.controls.email.hasError('required')) {
-    <small>Email is required.</small>
-  }
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" type="email" placeholder="Email" formControlName="email">
 
-  @if (submitted && loginForm.controls.email.hasError('email')) {
-    <small>Please enter a valid email.</small>
-  }
+      @if (submitted && loginForm.controls.email.hasError('required')) {
+      <small>Email is required.</small>
+      }
 
-  <input type="password" placeholder="Password" formControlName="password">
+      @if (submitted && loginForm.controls.email.hasError('email')) {
+      <small>Please enter a valid email.</small>
+      }
+    </div>
 
-  @if (submitted && loginForm.controls.password.hasError('required')) {
-    <small>Password is required.</small>
-  }
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input id="password" type="password" placeholder="Password" formControlName="password">
 
-  <button type="submit">Login</button>
-</form>
+      @if (submitted && loginForm.controls.password.hasError('required')) {
+      <small>Password is required.</small>
+      }
+    </div>
+
+    <button type="submit">Login</button>
+  </form>
+</div>
