@@ -1,7 +1,6 @@
-<div class="just-space"></div>
 <div class="logoAndNavbar">
   <div>
-    <span routerLink="" class="logo">🏪</span>
+    <span routerLink="" class="logo">MyMarket 🏪</span>
   </div>
   <div class="navbar">
     <a routerLink="">Home</a>
@@ -11,11 +10,37 @@
     <a routerLink="/dashboard">Dashboard</a>
     <button (click)="logout()">Logout</button>
     } @else {
-      <a routerLink="/login">
+      <a routerLink="/login" class="login-btn">
         Login
       </a>
     }
   </div>
 </div>
 
-<h1 class="header">MyMarket Clone</h1>
+<section class="hero">
+  <div class="hero-content">
+    <p class="hero-label">WELCOME TO MYMARKET</p>
+
+    <h1>
+      Buy and sell
+      <span>with ease.</span>
+    </h1>
+
+    <p class="hero-description">
+      Discover great products, sell items you no longer need,
+      and connect with your local marketplace.
+    </p>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-card">
+      <span class="hero-card-icon">🏪</span>
+
+      <h2>Your marketplace</h2>
+
+      <p>Discover. Sell. Connect.</p>
+    </div>
+  </div>
+</section>
+
+<!-- <h1 class="header">MyMarket Clone</h1> -->
