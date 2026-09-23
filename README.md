@@ -6,19 +6,19 @@ A marketplace-style CRUD application built with Angular, where users can browse,
 
 ### Home
 
-![MyMarket Home](./screenshots/home.png)
+![MyMarket Home](screenshots/home.png)
 
 ### Product Details
 
-![Product Details](./screenshots/product-details.png)
+![Product Details](screenshots/product-details.png)
 
 ### Add/Edit Product
 
-![Item Form](./screenshots/item-form.png)
+![Item Form](screenshots/item-form.png)
 
 ### Login
 
-![Login](./screenshots/login.png)
+![Login](screenshots/login.png)
 
 ## Features
 
