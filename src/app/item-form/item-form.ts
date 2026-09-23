@@ -62,6 +62,7 @@ export class ItemForm implements OnInit {
         price: this.form.value.price ?? 0,
         shortDescription: this.form.value.shortDescription ?? '',
         availability: true,
+        image: '',
         description: '',
       };
       this.dataService.addItem(newItem);

@@ -4,5 +4,6 @@ export interface Item {
   availability: boolean;
   shortDescription: string;
   price: number;
+  image: string;
   description: string;
 }

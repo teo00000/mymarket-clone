@@ -12,6 +12,7 @@ export class DataService {
       availability: true,
       shortDescription: 'Lightweight laptop with Apple M4 chip.',
       price: 1299,
+      image: "images/macbook-air.webp",
       description:
         'The MacBook Air M4 delivers excellent performance, all-day battery life, and a stunning Liquid Retina display. Perfect for students, developers, and professionals looking for a portable yet powerful laptop.',
     },
@@ -21,6 +22,7 @@ export class DataService {
       availability: true,
       shortDescription: 'Apple flagship smartphone with advanced cameras.',
       price: 1099,
+      image: "images/iphone-16-pro.avif",
       description:
         'The iPhone 16 Pro features a powerful processor, professional-grade camera system, vibrant OLED display, and premium titanium design. Built for photography, gaming, and everyday productivity.',
     },
@@ -30,6 +32,7 @@ export class DataService {
       availability: false,
       shortDescription: 'Premium Android smartphone.',
       price: 999,
+      image: "images/samsung-galaxy.webp",
       description:
         'The Galaxy S25 combines a bright AMOLED display, fast performance, and versatile camera setup. A great choice for Android enthusiasts seeking a flagship experience.',
     },
@@ -39,6 +42,7 @@ export class DataService {
       availability: true,
       shortDescription: 'Wireless noise-cancelling headphones.',
       price: 449,
+      image: "images/sony-headphones.webp",
       description:
         'Enjoy industry-leading active noise cancellation, exceptional sound quality, and up to 30 hours of battery life. Ideal for travel, work, and immersive music listening.',
     },
@@ -48,6 +52,7 @@ export class DataService {
       availability: true,
       shortDescription: 'Versatile tablet for work and creativity.',
       price: 699,
+      image: "images/ipad.webp",
       description:
         'The iPad Air offers a responsive display, Apple Pencil support, and excellent performance for note-taking, digital art, streaming, and multitasking.',
     },
@@ -57,6 +62,7 @@ export class DataService {
       availability: false,
       shortDescription: 'High-performance Windows laptop.',
       price: 1899,
+      image: "images/dell-laptop.jpg",
       description:
         'The Dell XPS 15 features a premium aluminum chassis, Intel Core processor, vibrant display, and dedicated graphics, making it perfect for software development and content creation.',
     },
@@ -66,6 +72,7 @@ export class DataService {
       availability: true,
       shortDescription: 'Ergonomic wireless productivity mouse.',
       price: 99,
+      image: "images/mouse.jpg",
       description:
         'Designed for professionals, the MX Master 3S offers precise tracking, customizable buttons, and silent clicks for a comfortable and efficient workflow.',
     },
@@ -75,6 +82,7 @@ export class DataService {
       availability: true,
       shortDescription: '34-inch ultrawide QHD display.',
       price: 549,
+      image: "images/monitor.avif",
       description:
         'Increase productivity with a spacious ultrawide screen, vibrant colors, and USB-C connectivity. Excellent for programming, design, and multitasking.',
     },

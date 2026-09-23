@@ -1,4 +1,5 @@
 <div class="item-container" (click)="viewDetails()">
+  <img [src]="item.image" [alt]="item.title" class="product-image"/>
   <h3 class="item-title">{{ item.title }}</h3>
 
   <p class="item-price">{{ item.price }}$</p>

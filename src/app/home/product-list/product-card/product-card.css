@@ -10,6 +10,8 @@
 
   cursor: pointer;
 
+  height: 100%;
+
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease,
@@ -51,4 +53,10 @@
   line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.product-image { 
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
 }
