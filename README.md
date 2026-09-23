@@ -94,6 +94,4 @@ http://localhost:4200
 
 Developed by **Teona Papiashvili**
 
-I'm currently learning Angular and building projects to strengthen my frontend development skills. Feedback, suggestions and contributions are always welcome.
-
 GitHub: https://github.com/teo00000
