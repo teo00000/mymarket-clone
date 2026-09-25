@@ -7,6 +7,7 @@ import { ProductDetails } from './product-details/product-details';
 import { authGuard } from './guards/auth.guard';
 import { Login } from './login/login';
 import { Dashboard } from './dashboard/dashboard';
+import { ConfirmationModal } from './shared/components/confirmation-modal/confirmation-modal';
 
 export const routes: Routes = [
   {
@@ -41,5 +42,5 @@ export const routes: Routes = [
     path: 'dashboard',
     component: Dashboard,
     canActivate: [authGuard],
-  },
+  }
 ];

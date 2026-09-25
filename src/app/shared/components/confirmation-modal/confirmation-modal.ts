@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
 @Component({
   selector: 'app-confirmation-modal',
@@ -6,4 +6,10 @@ import { Component } from '@angular/core';
   templateUrl: './confirmation-modal.html',
   styleUrl: './confirmation-modal.css',
 })
-export class ConfirmationModal {}
+export class ConfirmationModal {
+  title = input.required<string>();
+  message = input.required<string>();
+
+  confirmed = output<void>();
+  cancelled = output<void>();
+}

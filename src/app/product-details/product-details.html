@@ -8,10 +8,19 @@
   <button [routerLink]="['/item-form', product()?.id]" class="edit-btn">
     Edit
   </button>
-  <button (click)="onDelete(); $event.stopPropagation()" class="delete-btn">
+  <button (click)="openDeleteModal(); $event.stopPropagation()" class="delete-btn">
     Delete
   </button>
 </div>
 } @else {
 <p>Loading product details...</p>
+}
+
+@if (showDeleteModal) {
+  <app-confirmation-modal
+    title="Delete product?"
+    message="This action cannot be undone."
+    (confirmed)="deleteProduct()"
+    (cancelled)="closeModal()"
+  />
 }

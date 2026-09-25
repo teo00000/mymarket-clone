@@ -1,5 +1,5 @@
 <div class="wrapper">
-  @for (item of items; track item.id) {
+  @for (item of items(); track item.id) {
   <app-product-card
     [item]="item"
     (view)="onClick($event)"

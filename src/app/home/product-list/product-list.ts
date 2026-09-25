@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, input, output } from '@angular/core';
 import { ProductCard } from './product-card/product-card';
 import { Item } from '../../shared/models/item.interface';
 
@@ -11,9 +11,9 @@ import { Item } from '../../shared/models/item.interface';
 })
 export class ProductList {
   // Used in template to display products
-  @Input() items: Item[] = [];
+  items = input<Item[]>([]);
 
-  @Output() openDetails = new EventEmitter<number>();
+  openDetails = output<number>();
   onClick(id: number) {
     this.openDetails.emit(id);
   }

@@ -1,1 +1,15 @@
-<p>confirmation-modal works!</p>
+<div class="modal-backdrop">
+  <div class="modal">
+    <h2>{{ title() }}</h2>
+
+    <p>{{ message() }}</p>
+
+    <button (click)="cancelled.emit()">
+      Cancel
+    </button>
+
+    <button (click)="confirmed.emit()">
+      Delete
+    </button>
+  </div>
+</div>

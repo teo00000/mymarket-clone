@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, input, output } from '@angular/core';
 import { Item } from '../../../shared/models/item.interface';
 
 @Component({
@@ -9,10 +9,11 @@ import { Item } from '../../../shared/models/item.interface';
   styleUrl: './product-card.css',
 })
 export class ProductCard {
-  @Input() item!: Item;
+  item = input.required<Item>();
 
-  @Output() view = new EventEmitter<number>();
+  view = output<number>();
+
   viewDetails() {
-    this.view.emit(this.item.id);
+    this.view.emit(this.item().id);
   }
 }
