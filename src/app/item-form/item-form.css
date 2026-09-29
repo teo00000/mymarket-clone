@@ -33,6 +33,66 @@ textarea:focus {
   box-shadow: 0 0 0 3px rgba(37, 99, 235, .15);
 }
 
+.form-field {
+  border: none;
+  padding: 0;
+  margin: 0 0 24px;
+}
+
+.form-field legend {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.image-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.image-option {
+  position: relative;
+  width: 140px;
+  height: 110px;
+
+  padding: 8px;
+  border: 2px solid #d1d5db;
+  border-radius: 10px;
+
+  background: #fff;
+  cursor: pointer;
+
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.image-option:hover {
+  border-color: #9ca3af;
+  transform: translateY(-2px);
+}
+
+.image-option.selected {
+  border-color: #166534;
+  box-shadow: 0 0 0 2px rgba(22, 101, 52, 0.15);
+}
+
+.image-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.image-option img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
 .actions {
   display: flex;
   justify-content: flex-end;

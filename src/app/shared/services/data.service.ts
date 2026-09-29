@@ -90,6 +90,19 @@ export class DataService {
 
   public items = this.itemsSignal.asReadonly();
 
+  readonly availableImages = [
+    '/images/dell-laptop.jpg',
+    '/images/ipad.webp',
+    '/images/iphone-16-pro.avif',
+    '/images/macbook-air.webp',
+    '/images/monitor.avif',
+    '/images/mouse.jpg',
+    '/images/samsung-galaxy.webp',
+    '/images/sony-headphones.webp'
+  ];
+
+  
+
   deleteItem(id: number): void {
     this.itemsSignal.update((items) => items.filter((item) => item.id !== id));
   }

@@ -1,23 +1,27 @@
 import { Component, inject } from '@angular/core';
 import { Item } from '../shared/models/item.interface';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../shared/services/data.service';
 import { OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-item-form',
+  selector: 'app-item-itemForm',
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './item-form.html',
   styleUrl: './item-form.css',
 })
 export class ItemForm implements OnInit {
-  form = new FormGroup({
-    title: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    price: new FormControl(0, [Validators.required, Validators.min(1)]),
-    shortDescription: new FormControl('', [Validators.required, Validators.minLength(10)]),
+  private fb = inject(FormBuilder);
+
+  itemForm = this.fb.nonNullable.group({
+    title: ['', [Validators.required, Validators.minLength(3)]],
+  price: [0, [Validators.required, Validators.min(1)]],
+    shortDescription: ['', [Validators.required, Validators.minLength(10)]],
+    description: ['', [Validators.required, Validators.minLength(20)]],
+    image: ['', Validators.required],
   });
 
   id!: number;
@@ -26,6 +30,8 @@ export class ItemForm implements OnInit {
 
   item?: Item;
 
+  availableImages?: Array<string>;
+
   private router = inject(Router);
   private route = inject(ActivatedRoute);
   private dataService = inject(DataService);
@@ -33,10 +39,11 @@ export class ItemForm implements OnInit {
   ngOnInit() {
     this.id = Number(this.route.snapshot.paramMap.get('id') ?? 0);
     this.editingMode = this.id > 0;
+    this.availableImages = this.dataService.availableImages;
     if (this.editingMode) {
       this.item = this.dataService.getItemById(this.id);
       if (this.item) {
-        this.form.patchValue(this.item);
+        this.itemForm.patchValue(this.item);
       }
     }
   }
@@ -49,21 +56,23 @@ export class ItemForm implements OnInit {
 
       const updatedItem: Item = {
         ...this.item,
-        title: this.form.value.title ?? '',
-        price: this.form.value.price ?? 0,
-        shortDescription: this.form.value.shortDescription ?? '',
+        title: this.itemForm.value.title ?? '',
+        price: this.itemForm.value.price ?? 0,
+        shortDescription: this.itemForm.value.shortDescription ?? '',
+        description: this.itemForm.value.description ?? '',
+        image: this.itemForm.value.image ?? '',
       };
 
       this.dataService.updateItem(updatedItem);
     } else {
       const newItem: Item = {
         id: Date.now(),
-        title: this.form.value.title ?? '',
-        price: this.form.value.price ?? 0,
-        shortDescription: this.form.value.shortDescription ?? '',
+        title: this.itemForm.value.title ?? '',
+        price: this.itemForm.value.price ?? 0,
+        shortDescription: this.itemForm.value.shortDescription ?? '',
         availability: true,
-        image: '',
-        description: '',
+        image: this.itemForm.value.image ?? '',
+        description: this.itemForm.value.description ?? '',
       };
       this.dataService.addItem(newItem);
     }
@@ -73,5 +82,9 @@ export class ItemForm implements OnInit {
 
   cancel(): void {
     this.router.navigate(['/']);
+  }
+
+  selectImage(image: string) {
+    this.itemForm.controls.image.setValue(image);
   }
 }

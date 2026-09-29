@@ -1,18 +1,33 @@
-<form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+<form class="form" [formGroup]="itemForm" (ngSubmit)="onSubmit()">
   <label for="title">Product name</label>
-  <input id="title" type="text"
-    placeholder="Enter product name" formControlName="title">
+  <input id="title" type="text" placeholder="Enter product name" formControlName="title">
 
   <label for="price">Price</label>
   <input required min="0" id="price" type="number" placeholder="0.00" formControlName="price">
 
+  <label for="shortDescription">Short Description</label>
+  <textarea id="shortDescription" type="text" placeholder="Describe the product"
+    formControlName="shortDescription"></textarea>
+
   <label for="description">Description</label>
-  <textarea id="description" type="text"
-    placeholder="Describe the product" formControlName="shortDescription"></textarea>
+  <textarea name="description" id="description" formControlName="description"></textarea>
+
+  <fieldset class="form-field">
+    <legend>Product image</legend>
+    <div class="image-options">
+      @for (image of availableImages; track image) {
+      <label class="image-option" [class.selected]="itemForm.controls.image.value === image">
+        <input type="radio" formControlName="image" [value]="image">
+
+        <img [src]="image" alt="Product image">
+      </label>
+      }
+    </div>
+  </fieldset>
 
   <div class="actions">
     <button type="button" (click)="cancel()">Cancel</button>
-    <button type="submit" [disabled]="form.invalid">
+    <button type="submit" [disabled]="itemForm.invalid">
       {{ editingMode ? 'Save Changes' : 'Add Product' }}
     </button>
   </div>

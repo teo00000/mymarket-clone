@@ -1,6 +1,6 @@
-<div class="modal-backdrop">
-  <div class="modal">
-    <h2>{{ title() }}</h2>
+<div class="modal-backdrop" (click)="cancelled.emit()">
+  <div class="modal" role="dialog" aria-modal="true" (click)="$event.stopPropagation()">
+    <h2 id="delete-product-title">{{ title() }}</h2>
 
     <p>{{ message() }}</p>
 

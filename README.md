@@ -22,17 +22,18 @@ A marketplace-style CRUD application built with Angular, where users can browse,
 
 ## Features
 
-- Browse product listings
-- Search products
-- View product details
-- Add new listings
-- Edit existing listings
-- Delete listings
+- Browse and search marketplace listings
+- View individual product details
+- Create new product listings
+- Edit existing listings using reactive forms
+- Delete listings with confirmation
+- Form validation and user feedback
+- Protected dashboard using an Angular route guard
 - Responsive layout
 
 ## Technologies
 
-- Angular
+- Angular 21
 - TypeScript
 - Angular Signals
 - Reactive Forms
