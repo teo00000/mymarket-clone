@@ -18,12 +18,6 @@
     border-color 0.2s ease;
 }
 
-.item-container:hover {
-  transform: translateY(-4px);
-  border-color: #d1d5db;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-}
-
 .item-title {
   margin: 0;
   font-size: 20px;
@@ -55,8 +49,34 @@
   overflow: hidden;
 }
 
-.product-image { 
+.product-image {
   width: 100%;
   height: 220px;
   object-fit: contain;
+}
+
+@media (hover: hover) {
+  .item-container:hover {
+    transform: translateY(-4px);
+    border-color: #d1d5db;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  }
+}
+
+@media (max-width: 700px) {
+  .item-container {
+    padding: 16px;
+  }
+
+  .product-image {
+    height: 180px;
+  }
+
+  .item-title {
+    font-size: 18px;
+  }
+
+  .item-price {
+    font-size: 20px;
+  }
 }

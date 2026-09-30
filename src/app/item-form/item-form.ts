@@ -48,7 +48,11 @@ export class ItemForm implements OnInit {
     }
   }
 
+  submitted = false;
+
   onSubmit() {
+    this.submitted = true;
+
     if(this.itemForm.invalid) {
       this.itemForm.markAllAsTouched();
       return;

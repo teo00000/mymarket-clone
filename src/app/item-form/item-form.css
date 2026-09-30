@@ -134,3 +134,28 @@ button[type='button'] {
   font-size: 0.875rem;
   line-height: 1.4;
 }
+
+@media (max-width: 500px) {
+  .form {
+    width: calc(100% - 1rem);
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+
+  .actions {
+    flex-direction: column-reverse;
+  }
+
+  .actions button {
+    width: 100%;
+  }
+
+  .image-options {
+    gap: 10px;
+  }
+
+  .image-option {
+    width: calc(50% - 5px);
+    height: 100px;
+  }
+}

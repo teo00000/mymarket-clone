@@ -65,7 +65,7 @@
     </div>
   </fieldset>
 
-  @if (itemForm.controls.image.hasError('required')) {
+  @if (submitted && itemForm.controls.image.hasError('required')) {
   <p class="error-message">Image is required.</p>
   }
 
