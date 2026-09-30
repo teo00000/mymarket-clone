@@ -2,6 +2,10 @@
 
 A marketplace-style CRUD application built with Angular, where users can browse, search, add, edit, and delete product listings.
 
+## Live Demo
+
+[View Live Demo](https://mymarket-clone-mu.vercel.app/)
+
 ## Screenshots
 
 ### Home
@@ -15,6 +19,10 @@ A marketplace-style CRUD application built with Angular, where users can browse,
 ### Add/Edit Product
 
 ![Item Form](screenshots/item-form.png)
+
+### Delete confirmation modal
+
+![Delete confirmation](screenshots/delete-confirmation.png)
 
 ### Login
 
