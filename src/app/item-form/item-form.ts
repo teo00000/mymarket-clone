@@ -16,9 +16,9 @@ import { Router } from '@angular/router';
 export class ItemForm implements OnInit {
   private fb = inject(FormBuilder);
 
-  itemForm = this.fb.nonNullable.group({
+  itemForm = this.fb.group({
     title: ['', [Validators.required, Validators.minLength(3)]],
-  price: [0, [Validators.required, Validators.min(1)]],
+    price: this.fb.control<number | null>(null, [Validators.required, Validators.min(1)]),
     shortDescription: ['', [Validators.required, Validators.minLength(10)]],
     description: ['', [Validators.required, Validators.minLength(20)]],
     image: ['', Validators.required],
@@ -49,6 +49,11 @@ export class ItemForm implements OnInit {
   }
 
   onSubmit() {
+    if(this.itemForm.invalid) {
+      this.itemForm.markAllAsTouched();
+      return;
+    }
+
     if (this.editingMode) {
       if (!this.item) {
         return;

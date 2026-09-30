@@ -2,15 +2,55 @@
   <label for="title">Product name</label>
   <input id="title" type="text" placeholder="Enter product name" formControlName="title">
 
+  @if (itemForm.controls.title.invalid && itemForm.controls.title.touched) {
+  @if (itemForm.controls.title.hasError('required')) {
+  <p class="error-message">Title is required.</p>
+  }
+
+  @if (itemForm.controls.title.hasError('minlength')) {
+  <p class="error-message">Title must be at least 3 characters.</p>
+  }
+  }
+
   <label for="price">Price</label>
   <input required min="0" id="price" type="number" placeholder="0.00" formControlName="price">
 
+  @if (itemForm.controls.price.invalid && itemForm.controls.price.touched) {
+  @if (itemForm.controls.price.hasError('required')) {
+  <p class="error-message">Price is required.</p>
+  }
+
+  @if (itemForm.controls.price.hasError('minlength')) {
+  <p class="error-message">Price must be at least 1.</p>
+  }
+  }
+
   <label for="shortDescription">Short Description</label>
   <textarea id="shortDescription" type="text" placeholder="Describe the product"
-    formControlName="shortDescription"></textarea>
+  formControlName="shortDescription"></textarea>
+
+  @if (itemForm.controls.shortDescription.invalid && itemForm.controls.shortDescription.touched) {
+  @if (itemForm.controls.shortDescription.hasError('required')) {
+  <p class="error-message">Short description is required.</p>
+  }
+
+  @if (itemForm.controls.shortDescription.hasError('minlength')) {
+  <p class="error-message">Short description must be at least 10 characters.</p>
+  }
+  }
 
   <label for="description">Description</label>
   <textarea name="description" id="description" formControlName="description"></textarea>
+
+  @if (itemForm.controls.description.invalid && itemForm.controls.description.touched) {
+  @if (itemForm.controls.description.hasError('required')) {
+  <p class="error-message">Description is required.</p>
+  }
+
+  @if (itemForm.controls.description.hasError('minlength')) {
+  <p class="error-message">Description must be at least 20 characters.</p>
+  }
+  }
 
   <fieldset class="form-field">
     <legend>Product image</legend>
@@ -25,9 +65,13 @@
     </div>
   </fieldset>
 
+  @if (itemForm.controls.image.hasError('required')) {
+  <p class="error-message">Image is required.</p>
+  }
+
   <div class="actions">
     <button type="button" (click)="cancel()">Cancel</button>
-    <button type="submit" [disabled]="itemForm.invalid">
+    <button type="submit">
       {{ editingMode ? 'Save Changes' : 'Add Product' }}
     </button>
   </div>
