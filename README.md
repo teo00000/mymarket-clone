@@ -6,6 +6,9 @@ A marketplace-style CRUD application built with Angular, where users can browse,
 
 [View Live Demo](https://mymarket-clone-mu.vercel.app/)
 
+## 🎥 Demo
+[![Mymarket Demo](./screenshots/home.png)](https://youtu.be/YZRpx1s_sRU)
+
 ## Screenshots
 
 ### Home
